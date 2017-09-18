@@ -42,7 +42,19 @@ Maximal number of iterations.
 Default is \code{100}.}
 }
 \value{
-[\code{\link[ecr]{ecr_result}}]
+[\code{\link[ecr]{ecr_result}}] List of type \code{\link[ecr]{ecr_result}}
+ with the following components:
+ \describe{
+  \item{task}{The \code{ecr_optimization_task}.}
+  \item{log}{Logger object.}
+  \item{pareto.idx}{Indizes of the non-dominated solutions in the last population.}
+  \item{pareto.front}{(n x d) matrix of the approximated non-dominated front where n
+  is the number of non-dominated points and d is the number of objectives.}
+  \item{pareto.set}{Matrix of decision space values resulting with objective values
+  given in pareto.front.}
+  \item{last.population}{Last population.}
+  \item{message}{Character string describing the reason of termination.}
+ }
 }
 \description{
 Evolutionary multi-objective algorithm to solve the
@@ -58,6 +70,11 @@ inst = genRandomMCGP(10)
 res = mcMSTEmoaBG(inst, mu = 20L, max.iter = 100L)
 print(res$pareto.front)
 print(tail(getStatistics(res$log)))
+}
+\references{
+Bossek, J., and Grimme, C. A Pareto-Beneficial Sub-Tree Mutation
+for the Multi-Criteria Minimum Spanning Tree Problem. In Proceedings of the
+2017 IEEE Symposium Series on Computational Intelligence (2017). (accepted)
 }
 \seealso{
 Mutators \code{\link{mutSubgraphMST}} and \code{\link{mutEdgeExchange}}

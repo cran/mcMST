@@ -8,7 +8,7 @@ library(mcMST)
 g = mcGP(lower = 0, upper = 1)
 g = addWeights(g, method = "random", weight.fun = runif, min = 10, max = 20, n = 50)
 g = addWeights(g, method = "random", weight.fun = runif, min = 20, max = 100)
-plotGraph(g)$pl.weights
+plot(g)$pl.weights
 
 ## ---- fig.width=8, out.width='100%'--------------------------------------
 g = mcGP(lower = 0, upper = 100)
@@ -17,7 +17,7 @@ g = addWeights(g, method = "euclidean")
 g = addWeights(g, method = "random", weight.fun = rnorm, mean = 40, sd = 5)
 print(g)
 library(gridExtra)
-do.call(grid.arrange, c(plotGraph(g), nrow = 1))
+do.call(grid.arrange, c(plot(g), nrow = 1))
 
 ## ---- fig.width=8, out.width='100%'--------------------------------------
 g = mcGP(lower = 0, upper = 10)
@@ -27,5 +27,5 @@ g = addCoordinates(g, n = c(10, 20, 70), by.centers = TRUE, generator = coordUni
 g = addCoordinates(g, n = 20, generator = coordUniform)
 g = addWeights(g, method = "manhattan")
 g = addWeights(g, method = "random", weight.fun = rchisq, df = 10)
-do.call(grid.arrange, c(plotGraph(g), nrow = 1))
+do.call(grid.arrange, c(plot(g), nrow = 1))
 
