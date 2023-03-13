@@ -4,7 +4,12 @@
 \alias{mutSubgraphMST}
 \title{Subgraph-mutator for edge list representation.}
 \usage{
-mutSubgraphMST(ind, sigma = floor(ncol(ind)/2), instance = NULL)
+mutSubgraphMST(
+  ind,
+  sigma = floor(ncol(ind)/2),
+  scalarize = FALSE,
+  instance = NULL
+)
 }
 \arguments{
 \item{ind}{[\code{matrix(2, m)}]\cr
@@ -13,8 +18,17 @@ Matrix of edges (each column is one edge).}
 \item{sigma}{[\code{integer()}]\cr
 Upper bound for the size of the selected subtree.}
 
-\item{instance}{[\code{mcGP}]\cr
-Multi-objective graph problem.}
+\item{scalarize}{[\code{logical(1)}]\cr
+Should a scalarized version of the the subproblem be solved?
+If \code{TRUE}, a random weight \eqn{\lambda \in [0,1]} is sampled
+from a \code{U[0, 1]}-distribution. Next, a weighted sum
+scalarization \eqn{\lambda \cdot c_1 + (1 - \lambda) \cdot c_2}
+of the subproblem is solved.
+Default is \code{FALSE}, i.e., the single-objective subproblem is
+solved. The objective to optimize for is sampled with equal probability.}
+
+\item{instance}{[\code{\link[grapherator]{grapherator}}]\cr
+Multi-objective graph.}
 }
 \value{
 [\code{matrix(2, m)}] Mutated edge list.
@@ -28,6 +42,10 @@ regarding one of the objectives with equal probability.
 \seealso{
 Evolutionary multi-objective algorithm \code{\link{mcMSTEmoaBG}}
 
-Other mcMST EMOA mutators: \code{\link{mutEdgeExchange}},
-  \code{\link{mutUniformPruefer}}
+Other mcMST EMOA mutators: 
+\code{\link{mutEdgeExchange}()},
+\code{\link{mutKEdgeExchange}()},
+\code{\link{mutSubforestMST}()},
+\code{\link{mutUniformPruefer}()}
 }
+\concept{mcMST EMOA mutators}

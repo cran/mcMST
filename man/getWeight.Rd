@@ -4,14 +4,20 @@
 \alias{getWeight}
 \title{Get the overall costs/weight of a subgraph given its edgelist.}
 \usage{
-getWeight(graph, edgelist)
+getWeight(graph, edgelist, obj.types = NULL)
 }
 \arguments{
-\item{graph}{[\code{mcGP}]\cr
-Multi-objective graph problem.}
+\item{graph}{[\code{\link[grapherator]{grapherator}}]\cr
+Graph.}
 
 \item{edgelist}{[\code{matrix(2, k)}]
 Matrix of edges (each column is one edge).}
+
+\item{obj.types}{[\code{character}]\cr
+How to aggregate edge weights?
+Possible values are \dQuote{sum} for sum objective and \dQuote{bottleneck}
+for bottleneck/min-max objectives.
+Default is \dQuote{sum} for each objective.}
 }
 \value{
 [\code{numeric(2)}] Weight vector.
@@ -27,4 +33,5 @@ g = genRandomMCGP(5)
 pcode = sample(1:5, 3, replace = TRUE)
 
 getWeight(g, prueferToEdgeList(pcode))
+getWeight(g, prueferToEdgeList(pcode), obj.types = "bottleneck")
 }

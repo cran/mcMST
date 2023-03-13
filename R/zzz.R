@@ -1,9 +1,9 @@
-#' @import BBmisc
+#' @importFrom BBmisc collapse insert stopf warningf requirePackages
 #' @import checkmate
 #' @importFrom gtools permutations
 #' @import ecr
-#' @import ggplot2
+#' @import grapherator
 #' @importFrom vegan spantree
-#' @importFrom stats dist runif
-#' @importFrom utils read.csv write.table
+#' @importFrom stats dist runif rnorm as.formula
+#' @importFrom utils read.csv write.table read.table
 NULL

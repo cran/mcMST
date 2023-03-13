@@ -6,9 +6,8 @@
 \title{mcMST: A Toolbox for the Multi-Criteria Minimum Spanning Tree Problem.}
 \description{
 The \pkg{mcMST} package provides a set of algorithms to
-approximate the Pareto-optimal front of multi-criteria
-minimum spanning tree (mcMST) problems. Besides, the package
-contains a modular toolbox for benchmark problem generation.
+approximate the Pareto-optimal set/front of multi-criteria
+minimum spanning tree (mcMST) problems.
 }
 \section{Algorithms}{
 

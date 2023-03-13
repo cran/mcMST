@@ -4,12 +4,21 @@
 \alias{mcMSTEmoaBG}
 \title{Subgraph EMOA for the multi-criteria MST problem.}
 \usage{
-mcMSTEmoaBG(instance, mu, lambda = mu, mut = NULL, selMating = NULL,
-  selSurvival = ecr::selNondom, ref.point = NULL, max.iter = 100L)
+mcMSTEmoaBG(
+  instance,
+  mu,
+  lambda = mu,
+  mut = NULL,
+  selMating = NULL,
+  selSurvival = ecr::selNondom,
+  ref.point = NULL,
+  max.iter = 100L,
+  ...
+)
 }
 \arguments{
-\item{instance}{[\code{mcGP}]\cr
-Multi-objective graph problem.}
+\item{instance}{[\code{\link[grapherator]{grapherator}}]\cr
+Multi-objective graph.}
 
 \item{mu}{[\code{integer(1)}]\cr
 Population size.}
@@ -40,6 +49,9 @@ with \eqn{(n-1)} edges.}
 \item{max.iter}{[\code{integer(1)}]\cr
 Maximal number of iterations.
 Default is \code{100}.}
+
+\item{...}{[\code{any}]\cr
+Further parameters passed to mutator.}
 }
 \value{
 [\code{\link[ecr]{ecr_result}}] List of type \code{\link[ecr]{ecr_result}}
@@ -79,8 +91,12 @@ for the Multi-Criteria Minimum Spanning Tree Problem. In Proceedings of the
 \seealso{
 Mutators \code{\link{mutSubgraphMST}} and \code{\link{mutEdgeExchange}}
 
-Other mcMST EMOAs: \code{\link{mcMSTEmoaZhou}}
+Other mcMST EMOAs: 
+\code{\link{mcMSTEmoaZhou}()}
 
-Other mcMST algorithms: \code{\link{mcMSTEmoaZhou}},
-  \code{\link{mcMSTPrim}}
+Other mcMST algorithms: 
+\code{\link{mcMSTEmoaZhou}()},
+\code{\link{mcMSTPrim}()}
 }
+\concept{mcMST EMOAs}
+\concept{mcMST algorithms}
